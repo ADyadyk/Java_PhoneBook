@@ -5,6 +5,7 @@ import com.github.ADyadyk.model.repository.myExceptions.MyBirthdayFormatExceptio
 import com.github.ADyadyk.model.repository.myExceptions.MyDataInputException;
 import com.github.ADyadyk.model.repository.myExceptions.MyGenderException;
 import com.github.ADyadyk.model.repository.myExceptions.MyNumberPhoneException;
+import com.github.ADyadyk.view.viewMethods.Checkable;
 import com.github.ADyadyk.view.viewMethods.Promptable;
 import com.github.ADyadyk.view.viewMethods.Viewable;
 
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class FrontendMethods implements Viewable, Promptable {
+public class FrontendMethods implements Viewable, Promptable, Checkable {
 
     @Override
     public void showMenu() {
@@ -20,9 +21,8 @@ public class FrontendMethods implements Viewable, Promptable {
         System.out.println("1 - добавить запись в виртуальную записную книжку");
         System.out.println("2 - прочитать записи из виртуальной записной книжки");
         System.out.println("3 - записать виртуальную записную книжку по фамильно в файлы");
-        System.out.println("4 - прочитать записи из файла по фамилии");
-        System.out.println("5 - выйти и сохранить виртуальную записную книжку в файлы");
-        System.out.println("6 - выйти и не сохранять виртуальную записную книжку в файлы");
+        System.out.println("4 - выйти и сохранить виртуальную записную книжку в файлы");
+        System.out.println("5 - выйти и не сохранять виртуальную записную книжку в файлы");
     }
 
     @Override
@@ -52,36 +52,36 @@ public class FrontendMethods implements Viewable, Promptable {
         }
     }
 
-    /**
-     * Проверка номера телефона
-     */
-    private boolean checkPhone(String number){
+    @Override
+    public boolean selectionСheck(int number){
+        String regex = "^[1-5]$";
+        Pattern pattern = Pattern.compile(regex); // Создаём регулярное выражение
+        return pattern.matcher(Integer.toString(number)).matches();
+    }
+
+    @Override
+    public boolean checkPhone(String number){
         String regex = "^((\\+7|7|8)+([0-9]){10})$";
         Pattern pattern = Pattern.compile(regex); // Создаём регулярное выражение
         return pattern.matcher(number).matches();
     }
-    /**
-     * Проверка даты рождения
-     */
-    private boolean checkDate(String date){
+
+    @Override
+    public boolean checkDate(String date){
         String regex = "(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])[.](19|20)\\d\\d";
         Pattern pattern = Pattern.compile(regex); // Создаём регулярное выражение
         return pattern.matcher(date).matches();
     }
 
-    /**
-     * Проверка пола человека
-     */
-    private boolean checkGender(String sex){
+    @Override
+    public boolean checkGender(String sex){
         String regex = "(?:m|M|f|F)$";
         Pattern pattern = Pattern.compile(regex); // Создаём регулярное выражение
         return pattern.matcher(sex).matches();
     }
 
-    /**
-     * Запрос данных у пользователя
-     */
-    private String[] requestData(){
+    @Override
+    public String[] requestData(){
         System.out.println("Введите данные для записи в формате:");
         System.out.println();
         System.out.println("Фамилия Имя Отчество Дата_рождения Номер_телефона пол");

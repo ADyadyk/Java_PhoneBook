@@ -2,6 +2,7 @@ package com.github.ADyadyk.view;
 
 import com.github.ADyadyk.controller.NotebookController;
 import com.github.ADyadyk.model.Entry;
+import com.github.ADyadyk.model.repository.myExceptions.MyIncorrectChoiceException;
 import com.github.ADyadyk.view.viewMethods.impl.FrontendMethods;
 
 import java.util.ArrayList;
@@ -17,6 +18,18 @@ public class View {
         while (true){
             FRONTEND_METHODS.showMenu();
             int menuItem = FRONTEND_METHODS.promptInt("Выберите пункт меню: ");
+
+
+            // ОБРАБОТАЙ ПРОВЕРКУ НА ВАЛИДНОСТЬ ВЫБОРА В МЕНЮ
+            try {
+                if(!FRONTEND_METHODS.selectionСheck(menuItem))throw new MyIncorrectChoiceException();
+            }catch (RuntimeException e){
+                System.out.println();
+                System.out.println(e.getMessage());
+                System.out.println();
+                FRONTEND_METHODS.showMenu();
+                menuItem = FRONTEND_METHODS.promptInt("Выберите пункт меню: ");
+            }
 
             // Добавление записи в виртуальную записную книжку
             if (menuItem == 1){
@@ -41,21 +54,18 @@ public class View {
 
             // Запись виртуальной записной книжки по фамильно в файлы
             if (menuItem == 3){
-
-            }
-
-            // Вывод в консоль из файла по фамилии
-            if (menuItem == 4){
-
+                CONTROLLER.writeToFileController(virtualPhoneBook);
+                virtualPhoneBook.clear();
             }
 
             // Выход с сохранением виртуальной записной книжки по фамильно в файлы
-            if (menuItem == 5){
-
+            if (menuItem == 4){
+                CONTROLLER.writeToFileController(virtualPhoneBook);
+                return;
             }
 
             // Выход без сохранения виртуальной записной книжки
-            if (menuItem == 6){
+            if (menuItem == 5){
                 return;
             }
         }

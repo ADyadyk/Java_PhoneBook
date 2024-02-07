@@ -3,21 +3,27 @@ package com.github.ADyadyk.model.repository.check.impl;
 import com.github.ADyadyk.model.Entry;
 import com.github.ADyadyk.model.repository.check.BackendMethodable;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BackendMethods implements BackendMethodable {
     @Override
     public void writeToFile(List<Entry> entries) {
+        for (int i = 0; i < entries.size(); i++) {
 
-    }
+            // Все создаваемые файлы будут храниться в папке data. Создадим путь:
+            String path = "src/com/github/ADyadyk/data/" + entries.get(i).getFamilyName() + ".txt";
 
-    @Override
-    public void readEntryFromFile(String familyName) {
-
-    }
-
-    @Override
-    public void saveToFileAndExit() {
-
+            try(FileWriter fileWriter = new FileWriter(path, true)){
+                fileWriter.write(entries.get(i) + "\n");
+                fileWriter.flush();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }

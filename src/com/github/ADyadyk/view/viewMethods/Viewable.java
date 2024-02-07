@@ -10,7 +10,7 @@ public interface Viewable {
      */
     void showMenu();
     /**
-     * Метод, добавляющий запись в список записей
+     * Метод, добавляющий запись в виртуальную записную книжку
      */
     Entry addEntry();
 
@@ -18,4 +18,9 @@ public interface Viewable {
      * Метод, читающий виртуальную записную книжку
      */
     void virtualRead(List<Entry> entries);
+
+    /**
+     * Запрос данных у пользователя
+     */
+    String[] requestData();
 }

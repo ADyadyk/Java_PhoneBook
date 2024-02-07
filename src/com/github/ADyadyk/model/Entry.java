@@ -61,6 +61,30 @@ public class Entry {
         }
     }
 
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getFatherName() {
+        return fatherName;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
     @Override
     public String toString() {
         return String.format("<%s><%s><%s><%s><%s><%s>",

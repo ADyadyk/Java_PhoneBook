@@ -11,13 +11,4 @@ public class NotebookController {
     public void writeToFileController(List<Entry> entries){
         BACKEND_METHODS.writeToFile(entries);
     }
-
-    public void readEntryFromFileController(String familyName){
-        BACKEND_METHODS.readEntryFromFile(familyName);
-    }
-
-    public void saveToFileAndExitController(){
-        BACKEND_METHODS.saveToFileAndExit();
-    }
-
 }
