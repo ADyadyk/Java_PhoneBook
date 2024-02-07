@@ -1,7 +1,7 @@
 package com.github.ADyadyk.model.repository.myExceptions;
 
-public class MyArgumentException extends RuntimeException{
-    public MyArgumentException() {
-        super("");
+public class MyDataInputException extends RuntimeException{
+    public MyDataInputException() {
+        super("Вы ввели не все данные");
     }
 }

@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class ViewMethods implements Viewable, Promptable {
+public class FrontendMethods implements Viewable, Promptable {
 
     @Override
     public void showMenu() {
         System.out.println("Выберите действия с телефонным справочником:");
         System.out.println("1 - добавить запись в виртуальную записную книжку");
         System.out.println("2 - прочитать записи из виртуальной записной книжки");
-        System.out.println("3 - записать виртуальную записную книжку по файлам по фамильно");
+        System.out.println("3 - записать виртуальную записную книжку по фамильно в файлы");
         System.out.println("4 - прочитать записи из файла по фамилии");
         System.out.println("5 - выйти и сохранить виртуальную записную книжку в файлы");
         System.out.println("6 - выйти и не сохранять виртуальную записную книжку в файлы");
@@ -44,7 +44,6 @@ public class ViewMethods implements Viewable, Promptable {
                 .telephoneNumber(item[4])
                 .sex(item[5])
                 .build();
-
 
             return entry; // Вернуть с добавлением нового элемента
         } catch (RuntimeException e){
@@ -102,27 +101,13 @@ public class ViewMethods implements Viewable, Promptable {
 
     @Override
     public void virtualRead(List<Entry> entries){
-
-    }
-
-    @Override
-    public void writeToFile(List<Entry> entries) {
-
-    }
-
-    @Override
-    public void readEntry(String familyName) {
-
-    }
-
-    @Override
-    public void saveExit() {
-
-    }
-
-    @Override
-    public void notSaveExit() {
-
+        try{
+            for (Entry entry : entries) {
+                System.out.println(entry);
+            }
+        } catch (IndexOutOfBoundsException e){
+            System.out.println("В виртуальной записной книжке нет записей!");
+        }
     }
 
     @Override

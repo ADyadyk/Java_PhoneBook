@@ -1,4 +1,4 @@
-package com.github.ADyadyk.view;
+package com.github.ADyadyk.view.viewMethods;
 
 public interface Promptable {
     /**

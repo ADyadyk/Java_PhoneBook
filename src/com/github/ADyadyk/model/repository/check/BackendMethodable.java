@@ -1,4 +1,23 @@
 package com.github.ADyadyk.model.repository.check;
 
-public interface Checkable {
+import com.github.ADyadyk.model.Entry;
+
+import java.util.List;
+
+public interface BackendMethodable {
+    /**
+     * Метод, записывающие список записей в файлы по фамильно
+     */
+    void writeToFile(List<Entry> entries);
+
+    /**
+     * Метод, читающий соответствующий файл с записями
+     */
+    void readEntryFromFile(String familyName);
+
+
+    /**
+     * Метод выхода с сохранением
+     */
+    void saveToFileAndExit();
 }

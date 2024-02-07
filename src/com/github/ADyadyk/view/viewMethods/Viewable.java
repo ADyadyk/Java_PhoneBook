@@ -1,4 +1,4 @@
-package com.github.ADyadyk.view;
+package com.github.ADyadyk.view.viewMethods;
 
 import com.github.ADyadyk.model.Entry;
 
@@ -18,25 +18,4 @@ public interface Viewable {
      * Метод, читающий виртуальную записную книжку
      */
     void virtualRead(List<Entry> entries);
-
-    /**
-     * Метод, записывающие список записей в файлы по фамильно
-     */
-    void writeToFile(List<Entry> entries);
-
-    /**
-     * Метод, читающий соответствующий файл с записями
-     */
-    void readEntry(String familyName);
-
-
-    /**
-     * Метод выхода с сохранением
-     */
-    void saveExit();
-
-    /**
-     * Метод выхода без сохранения
-     */
-    void notSaveExit();
 }
