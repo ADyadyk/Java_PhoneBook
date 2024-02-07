@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface BackendMethodable {
     /**
-     * Метод, записывающие список записей в файлы по фамильно
+     * Метод, записывающие список записей в файлы пофамильно
      */
     void writeToFile(List<Entry> entries);
 }

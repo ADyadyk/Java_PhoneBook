@@ -52,13 +52,13 @@ public class View {
                 System.out.println();
             }
 
-            // Запись виртуальной записной книжки по фамильно в файлы
+            // Запись виртуальной записной книжки пофамильно в файлы
             if (menuItem == 3){
                 CONTROLLER.writeToFileController(virtualPhoneBook);
                 virtualPhoneBook.clear();
             }
 
-            // Выход с сохранением виртуальной записной книжки по фамильно в файлы
+            // Выход с сохранением виртуальной записной книжки пофамильно в файлы
             if (menuItem == 4){
                 CONTROLLER.writeToFileController(virtualPhoneBook);
                 return;

@@ -20,7 +20,7 @@ public class FrontendMethods implements Viewable, Promptable, Checkable {
         System.out.println("Выберите действия с телефонным справочником:");
         System.out.println("1 - добавить запись в виртуальную записную книжку");
         System.out.println("2 - прочитать записи из виртуальной записной книжки");
-        System.out.println("3 - записать виртуальную записную книжку по фамильно в файлы");
+        System.out.println("3 - записать виртуальную записную книжку пофамильно в файлы");
         System.out.println("4 - выйти и сохранить виртуальную записную книжку в файлы");
         System.out.println("5 - выйти и не сохранять виртуальную записную книжку в файлы");
     }
