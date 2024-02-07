@@ -1,13 +1,10 @@
-package com.github.ADyadyk.model.repository.check.impl;
+package com.github.ADyadyk.model.repository.backend.impl;
 
 import com.github.ADyadyk.model.Entry;
-import com.github.ADyadyk.model.repository.check.BackendMethodable;
+import com.github.ADyadyk.model.repository.backend.BackendMethodable;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BackendMethods implements BackendMethodable {

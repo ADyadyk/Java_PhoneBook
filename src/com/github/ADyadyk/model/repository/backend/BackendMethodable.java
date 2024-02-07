@@ -1,4 +1,4 @@
-package com.github.ADyadyk.model.repository.check;
+package com.github.ADyadyk.model.repository.backend;
 
 import com.github.ADyadyk.model.Entry;
 

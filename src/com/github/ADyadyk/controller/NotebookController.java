@@ -1,7 +1,7 @@
 package com.github.ADyadyk.controller;
 
 import com.github.ADyadyk.model.Entry;
-import com.github.ADyadyk.model.repository.check.impl.BackendMethods;
+import com.github.ADyadyk.model.repository.backend.impl.BackendMethods;
 
 import java.util.List;
 
