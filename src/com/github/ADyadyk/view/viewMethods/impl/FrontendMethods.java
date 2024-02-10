@@ -101,12 +101,8 @@ public class FrontendMethods implements Viewable, Promptable, Checkable {
 
     @Override
     public void virtualRead(List<Entry> entries){
-        try{
-            for (Entry entry : entries) {
-                System.out.println(entry);
-            }
-        } catch (IndexOutOfBoundsException e){
-            System.out.println("В виртуальной записной книжке нет записей!");
+        for (Entry entry : entries) {
+            System.out.println(entry);
         }
     }
 
